@@ -10,16 +10,16 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (byte i = 63; i >= 0; i--) {
                 if ((long)(Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (long) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
             for(byte i = 7; i<63; i+=9) {
-                out = out.insert(i, ' ');
+                out.insert(i, ' ');
             }
             System.out.println("long:  0" + out);
 
@@ -29,16 +29,16 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (byte i = 63; i >= 0; i--) {
                 if ((long)(Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (long) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
             for(byte i = 7; i<63; i+=9) {
-                out = out.insert(i, ' ');
+                out.insert(i, ' ');
             }
             System.out.println("long:  1" + out);
         }
@@ -54,16 +54,16 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (int i = 31; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (int) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
             for(int i = 7; i<30; i+=9) {
-                out = out.insert(i, ' ');
+                out.insert(i, ' ');
             }
             System.out.println("int:   0" + out);
 
@@ -73,16 +73,16 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (int i = 31; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (int) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
             for(int i = 7; i<30; i+=9) {
-                out = out.insert(i, ' ');
+                out.insert(i, ' ');
             }
             System.out.println("int:   1" + out);
         }
@@ -98,16 +98,16 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (int i = 15; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (int) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
             for(int i = 7; i<15; i+=9) {
-                out = out.insert(i, ' ');
+                out.insert(i, ' ');
             }
             System.out.println("short: 0" + out);
 
@@ -117,16 +117,16 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (int i = 15; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (int) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
             for(int i = 7; i<15; i+=9) {
-                out = out.insert(i, ' ');
+                out.insert(i, ' ');
             }
             System.out.println("short: 1" + out);
         }
@@ -142,11 +142,11 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (int i = 7; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (int) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
@@ -158,11 +158,11 @@ class Res {
             StringBuilder out = new StringBuilder();
             for (int i = 7; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
-                    out = out.append("1");
+                    out.append("1");
                     score = score - (int) Math.pow(2, i);
                 }
                 else{
-                    out = out.append("0");
+                    out.append("0");
                 }
             }
             out.deleteCharAt(0);
