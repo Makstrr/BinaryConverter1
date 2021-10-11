@@ -3,7 +3,107 @@ import java.util.Scanner;
 
 class Res {
 
-    public void type_long(double a) {
+    public void type_double(long a, double b) {
+        long score;
+        double score1;
+        int exp;
+        score = Math.abs(a);
+        StringBuilder a1 = new StringBuilder();
+        StringBuilder exp1 = new StringBuilder();
+        StringBuilder b1 = new StringBuilder();
+        StringBuilder out = new StringBuilder();
+        while(score > 0) {
+            if (score % 2 == 1) {
+                a1.append("1");
+                score /= 2;
+            } else {
+                a1.append("0");
+                score /= 2;
+            }
+        }
+        a1.reverse();
+        exp = a1.length()-1 + 1023;
+        a1.deleteCharAt(0);
+        for (byte i = 10; i >= 0; i--) {
+            if ((int) (Math.pow(2, i)) <= exp) {
+                exp1.append("1");
+                exp = exp - (int) Math.pow(2, i);
+            } else {
+                exp1.append("0");
+            }
+        }
+        score1 = b;
+        while(score1 > 0 & a1.length()+b1.length()<52) {
+            score1 *= 2;
+            if ((long)score1==1) {
+                b1.append("1");
+                score1-=(long)score1;
+            } else {
+                b1.append("0");
+            }
+        }
+        out = a1.append(b1);
+        while(out.length()<52){
+            out.append("0");
+        }
+        if(a>=0){
+            System.out.println("double: 0 " + exp1 + " " + out);
+        }if(a<0){
+            System.out.println("double: 1 " + exp1 + " " + out);
+        }
+    }
+
+    public void type_float(long a, double b) {
+        long score;
+        double score1;
+        int exp;
+        score = Math.abs(a);
+        StringBuilder a1 = new StringBuilder();
+        StringBuilder exp1 = new StringBuilder();
+        StringBuilder b1 = new StringBuilder();
+        StringBuilder out = new StringBuilder();
+        while(score > 0) {
+            if (score % 2 == 1) {
+                a1.append("1");
+                score /= 2;
+            } else {
+                a1.append("0");
+                score /= 2;
+            }
+        }
+        a1.reverse();
+        exp = a1.length()-1 + 127;
+        a1.deleteCharAt(0);
+        for (byte i = 7; i >= 0; i--) {
+            if ((int) (Math.pow(2, i)) <= exp) {
+                exp1.append("1");
+                exp = exp - (int) Math.pow(2, i);
+            } else {
+                exp1.append("0");
+            }
+        }
+        score1 = b;
+        while(score1 > 0 & a1.length()+b1.length()<23) {
+            score1 *= 2;
+            if ((long)score1==1) {
+                b1.append("1");
+                score1-=(long)score1;
+            } else {
+                b1.append("0");
+            }
+        }
+        out = a1.append(b1);
+        while(out.length()<23){
+            out.append("0");
+        }
+        if(a>=0){
+            System.out.println("float:  0 " + exp1 + " " + out);
+        }if(a<0){
+            System.out.println("float:  1 " + exp1 + " " + out);
+        }
+    }
+
+    public void type_long(long a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 63)) {
             score = (long)a;
@@ -21,7 +121,7 @@ class Res {
             for(byte i = 7; i<63; i+=9) {
                 out.insert(i, ' ');
             }
-            System.out.println("long:  0" + out);
+            System.out.println("long:   0" + out);
 
 
         } if(a < 0 & a >= -1*Math.pow(2, 63)) {
@@ -40,14 +140,14 @@ class Res {
             for(byte i = 7; i<63; i+=9) {
                 out.insert(i, ' ');
             }
-            System.out.println("long:  1" + out);
+            System.out.println("long:   1" + out);
         }
         if(a >= Math.pow(2, 63) | a < (-1*Math.pow(2, 63))){
             System.out.println("Введенное число не помещается в тип long");
         }
     }
 
-    public void type_int(double a) {
+    public void type_int(long a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 31)) {
             score = (long)a;
@@ -65,7 +165,7 @@ class Res {
             for(int i = 7; i<30; i+=9) {
                 out.insert(i, ' ');
             }
-            System.out.println("int:   0" + out);
+            System.out.println("int:    0" + out);
 
 
         } if(a < 0 & a >= -1*Math.pow(2, 31)) {
@@ -91,7 +191,7 @@ class Res {
         }
     }
 
-    public void type_short(double a) {
+    public void type_short(long a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 15)) {
             score = (long)a;
@@ -109,7 +209,7 @@ class Res {
             for(int i = 7; i<15; i+=9) {
                 out.insert(i, ' ');
             }
-            System.out.println("short: 0" + out);
+            System.out.println("short:  0" + out);
 
 
         } if(a < 0 & a >= -1*Math.pow(2, 15)) {
@@ -128,14 +228,14 @@ class Res {
             for(int i = 7; i<15; i+=9) {
                 out.insert(i, ' ');
             }
-            System.out.println("short: 1" + out);
+            System.out.println("short:  1" + out);
         }
         if(a>=Math.pow(2, 15)|a<(-1*Math.pow(2,15))){
             System.out.println("Введенное число не помещается в тип short");
         }
     }
 
-    public void type_byte(double a) {
+    public void type_byte(long a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 7)) {
             score = (long)a;
@@ -150,7 +250,7 @@ class Res {
                 }
             }
             out.deleteCharAt(0);
-            System.out.println("byte:  0" + out);
+            System.out.println("byte:   0" + out);
 
 
         } if(a < 0 & a >= -1*Math.pow(2, 7)) {
@@ -166,7 +266,7 @@ class Res {
                 }
             }
             out.deleteCharAt(0);
-            System.out.println("byte:  1" + out);
+            System.out.println("byte:   1" + out);
         }
         if(a>=Math.pow(2, 7)|a<(-1*Math.pow(2, 7))){
             System.out.println("Введенное число не помещается в тип byte");
@@ -177,19 +277,49 @@ class Res {
 public class Main {
 
     public static void main(String[] args) {
-        double input;
+        double frac = 0;
+        long input;
+        String input1;
+        String[] parts;
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите число");
-        input = sc.nextDouble();
+        input1 = sc.nextLine();
+        if(input1.contains(".")){
+            parts = input1.split("\\.");
+            input = Long.parseLong(parts[0]);
+            frac = Double.parseDouble(parts[1]);
+            String frac1 = String.valueOf(frac);
+            frac/=(Math.pow(10, frac1.length()-2));
+            System.out.printf("%d, %f \n", input, frac);
+        } else if(input1.contains(",")){
+            parts = input1.split(",");
+            input = Long.parseLong(parts[0]);
+            frac = Double.parseDouble(parts[1]);
+            String frac1 = String.valueOf(frac);
+            frac/=(Math.pow(10, frac1.length()-2));
+            System.out.printf("%d, %f \n", input, frac);
+        } else{
+            input = Long.parseLong(input1);
+            System.out.println(input);
+        }
 
         Res byte1 = new Res();
         Res short1 = new Res();
         Res int1 = new Res();
         Res long1 = new Res();
-        byte1.type_byte(input);
-        short1.type_short(input);
-        int1.type_int(input);
-        long1.type_long(input);
+        Res float1 = new Res();
+        Res double1 = new Res();
+        if(frac==0) {
+            byte1.type_byte(input);
+            short1.type_short(input);
+            int1.type_int(input);
+            long1.type_long(input);
+            float1.type_float(input, frac);
+            double1.type_double(input, frac);
+        } else if(frac!=0){
+            float1.type_float(input, frac);
+            double1.type_double(input, frac);
+        }
     }
 
 }
