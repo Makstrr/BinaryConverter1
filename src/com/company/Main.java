@@ -15,11 +15,10 @@ class Res {
         while(score > 0) {
             if (score % 2 == 1) {
                 a1.append("1");
-                score /= 2;
             } else {
                 a1.append("0");
-                score /= 2;
             }
+            score >>= 1;
         }
         a1.reverse();
         exp = a1.length()-1 + 1023;
@@ -27,17 +26,17 @@ class Res {
         for (byte i = 10; i >= 0; i--) {
             if ((int) (Math.pow(2, i)) <= exp) {
                 exp1.append("1");
-                exp = exp - (int) Math.pow(2, i);
+                exp = exp - (int)Math.pow(2, i);
             } else {
                 exp1.append("0");
             }
         }
         score1 = b;
-        while(score1 > 0 & a1.length()+b1.length()<52) {
+        while(score1 > 0 & a1.length() + b1.length()<52) {
             score1 *= 2;
-            if ((long)score1==1) {
+            if ((long)score1 == 1) {
                 b1.append("1");
-                score1-=(long)score1;
+                score1 -= (long)score1;
             } else {
                 b1.append("0");
             }
@@ -46,9 +45,10 @@ class Res {
         while(out.length()<52){
             out.append("0");
         }
-        if(a>=0){
+        if (a>=0) {
             System.out.println("double: 0 " + exp1 + " " + out);
-        }if(a<0){
+        }
+        if (a<0) {
             System.out.println("double: 1 " + exp1 + " " + out);
         }
     }
@@ -65,11 +65,10 @@ class Res {
         while(score > 0) {
             if (score % 2 == 1) {
                 a1.append("1");
-                score /= 2;
             } else {
                 a1.append("0");
-                score /= 2;
             }
+            score >>= 1;
         }
         a1.reverse();
         exp = a1.length()-1 + 127;
@@ -77,17 +76,17 @@ class Res {
         for (byte i = 7; i >= 0; i--) {
             if ((int) (Math.pow(2, i)) <= exp) {
                 exp1.append("1");
-                exp = exp - (int) Math.pow(2, i);
+                exp = exp - (int)Math.pow(2, i);
             } else {
                 exp1.append("0");
             }
         }
         score1 = b;
-        while(score1 > 0 & a1.length()+b1.length()<23) {
+        while(score1 > 0 & a1.length() + b1.length()<23) {
             score1 *= 2;
-            if ((long)score1==1) {
+            if ((long)score1 == 1) {
                 b1.append("1");
-                score1-=(long)score1;
+                score1 -= (long)score1;
             } else {
                 b1.append("0");
             }
@@ -96,14 +95,15 @@ class Res {
         while(out.length()<23){
             out.append("0");
         }
-        if(a>=0){
+        if (a>=0) {
             System.out.println("float:  0 " + exp1 + " " + out);
-        }if(a<0){
+        }
+        if (a<0) {
             System.out.println("float:  1 " + exp1 + " " + out);
         }
     }
 
-    public void type_long(long a) {
+    public void type_long(double a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 63)) {
             score = (long)a;
@@ -111,9 +111,9 @@ class Res {
             for (byte i = 63; i >= 0; i--) {
                 if ((long)(Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (long) Math.pow(2, i);
+                    score = score - (long)Math.pow(2, i);
                 }
-                else{
+                else {
                     out.append("0");
                 }
             }
@@ -125,14 +125,14 @@ class Res {
 
 
         } if(a < 0 & a >= -1*Math.pow(2, 63)) {
-            score=(long)(-1*Math.pow(2, 63))^(long)a;
+            score=(long)(-1 * Math.pow(2, 63)) ^ (long)a;
             StringBuilder out = new StringBuilder();
             for (byte i = 63; i >= 0; i--) {
                 if ((long)(Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (long) Math.pow(2, i);
+                    score = score - (long)Math.pow(2, i);
                 }
-                else{
+                else {
                     out.append("0");
                 }
             }
@@ -142,12 +142,12 @@ class Res {
             }
             System.out.println("long:   1" + out);
         }
-        if(a >= Math.pow(2, 63) | a < (-1*Math.pow(2, 63))){
+        if(a >= Math.pow(2, 63) | a < (-1 * Math.pow(2, 63))){
             System.out.println("Введенное число не помещается в тип long");
         }
     }
 
-    public void type_int(long a) {
+    public void type_int(double a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 31)) {
             score = (long)a;
@@ -155,7 +155,7 @@ class Res {
             for (int i = 31; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (int) Math.pow(2, i);
+                    score = score - (int)Math.pow(2, i);
                 }
                 else{
                     out.append("0");
@@ -174,7 +174,7 @@ class Res {
             for (int i = 31; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (int) Math.pow(2, i);
+                    score = score - (int)Math.pow(2, i);
                 }
                 else{
                     out.append("0");
@@ -184,14 +184,14 @@ class Res {
             for(int i = 7; i<30; i+=9) {
                 out.insert(i, ' ');
             }
-            System.out.println("int:   1" + out);
+            System.out.println("int:    1" + out);
         }
         if(a >= Math.pow(2, 31) | a < (-1*Math.pow(2, 31))){
             System.out.println("Введенное число не помещается в тип int");
         }
     }
 
-    public void type_short(long a) {
+    public void type_short(double a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 15)) {
             score = (long)a;
@@ -199,7 +199,7 @@ class Res {
             for (int i = 15; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (int) Math.pow(2, i);
+                    score = score - (int)Math.pow(2, i);
                 }
                 else{
                     out.append("0");
@@ -218,7 +218,7 @@ class Res {
             for (int i = 15; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (int) Math.pow(2, i);
+                    score = score - (int)Math.pow(2, i);
                 }
                 else{
                     out.append("0");
@@ -235,7 +235,7 @@ class Res {
         }
     }
 
-    public void type_byte(long a) {
+    public void type_byte(double a) {
         long score;
         if(a >= 0 & a < Math.pow(2, 7)) {
             score = (long)a;
@@ -243,7 +243,7 @@ class Res {
             for (int i = 7; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (int) Math.pow(2, i);
+                    score = score - (int)Math.pow(2, i);
                 }
                 else{
                     out.append("0");
@@ -259,7 +259,7 @@ class Res {
             for (int i = 7; i >= 0; i--) {
                 if ((Math.pow(2, i)) <= score) {
                     out.append("1");
-                    score = score - (int) Math.pow(2, i);
+                    score = score - (int)Math.pow(2, i);
                 }
                 else{
                     out.append("0");
@@ -290,17 +290,17 @@ public class Main {
             frac = Double.parseDouble(parts[1]);
             String frac1 = String.valueOf(frac);
             frac/=(Math.pow(10, frac1.length()-2));
-            System.out.printf("%d, %f \n", input, frac);
+            System.out.println("\""+input1+"\" ->\n");
         } else if(input1.contains(",")){
             parts = input1.split(",");
             input = Long.parseLong(parts[0]);
             frac = Double.parseDouble(parts[1]);
             String frac1 = String.valueOf(frac);
             frac/=(Math.pow(10, frac1.length()-2));
-            System.out.printf("%d, %f \n", input, frac);
+            System.out.println("\""+input1+"\" ->\n");
         } else{
             input = Long.parseLong(input1);
-            System.out.println(input);
+            System.out.println("\""+input1+"\" ->\n");
         }
 
         Res byte1 = new Res();
