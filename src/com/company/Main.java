@@ -144,10 +144,10 @@ class Res {
             out.append("0");
         }
         if (a > 0 | b > 0) {
-            System.out.println("double: 0 " + exp1 + " " + out);
+            System.out.println("float: 0 " + exp1 + " " + out);
         }
         if (a < 0 | b < 0) {
-            System.out.println("double: 1 " + exp1 + " " + out);
+            System.out.println("float: 1 " + exp1 + " " + out);
         }
     }
 
