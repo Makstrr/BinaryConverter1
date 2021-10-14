@@ -7,48 +7,72 @@ class Res {
         long score;
         double score1;
         int exp;
-        score = Math.abs(a);
-        StringBuilder a1 = new StringBuilder();
         StringBuilder exp1 = new StringBuilder();
         StringBuilder b1 = new StringBuilder();
         StringBuilder out = new StringBuilder();
-        while(score > 0) {
-            if (score % 2 == 1) {
-                a1.append("1");
-            } else {
-                a1.append("0");
+        if(a!=0) {
+            StringBuilder a1 = new StringBuilder();
+            score = Math.abs(a);
+            while (score > 0) {
+                if (score % 2 == 1) {
+                    a1.append("1");
+                } else {
+                    a1.append("0");
+                }
+                score >>= 1;
             }
-            score >>= 1;
-        }
-        a1.reverse();
-        exp = a1.length()-1 + 1023;
-        a1.deleteCharAt(0);
-        for (byte i = 10; i >= 0; i--) {
-            if ((int) (Math.pow(2, i)) <= exp) {
-                exp1.append("1");
-                exp = exp - (int)Math.pow(2, i);
-            } else {
-                exp1.append("0");
+            a1.reverse();
+            exp = a1.length() - 1 + 1023;
+            a1.deleteCharAt(0);
+            for (byte i = 10; i >= 0; i--) {
+                if ((int) (Math.pow(2, i)) <= exp) {
+                    exp1.append("1");
+                    exp = exp - (int) Math.pow(2, i);
+                } else {
+                    exp1.append("0");
+                }
             }
-        }
-        score1 = b;
-        while(score1 > 0 & a1.length() + b1.length()<52) {
-            score1 *= 2;
-            if ((long)score1 == 1) {
-                b1.append("1");
-                score1 -= (long)score1;
-            } else {
-                b1.append("0");
+            score1 = Math.abs(b);
+            while(score1 > 0 & a1.length() + b1.length()<52) {
+                score1 *= 2;
+                if ((long)score1 == 1) {
+                    b1.append("1");
+                    score1 -= (long)score1;
+                } else {
+                    b1.append("0");
+                }
             }
+            out = a1.append(b1);
         }
-        out = a1.append(b1);
+        else {
+            score1 = Math.abs(b);
+            while (score1 > 0 & b1.length() < 52) {
+                score1 *= 2;
+                if ((long) score1 == 1) {
+                    b1.append("1");
+                    score1 -= (long) score1;
+                } else {
+                    b1.append("0");
+                }
+            }
+            exp = 1023 - b1.length();
+            for (byte i = 10; i >= 0; i--) {
+                if ((int) (Math.pow(2, i)) <= exp) {
+                    exp1.append("1");
+                    exp = exp - (int) Math.pow(2, i);
+                } else {
+                    exp1.append("0");
+                }
+            }
+            out.append(b1);
+        }
         while(out.length()<52){
             out.append("0");
         }
-        if (a>=0) {
+        if (a > 0 | b > 0) {
             System.out.println("double: 0 " + exp1 + " " + out);
         }
-        if (a<0) {
+        if (a < 0 | b < 0) {
             System.out.println("double: 1 " + exp1 + " " + out);
         }
     }
@@ -57,49 +81,73 @@ class Res {
         long score;
         double score1;
         int exp;
-        score = Math.abs(a);
-        StringBuilder a1 = new StringBuilder();
         StringBuilder exp1 = new StringBuilder();
         StringBuilder b1 = new StringBuilder();
         StringBuilder out = new StringBuilder();
-        while(score > 0) {
-            if (score % 2 == 1) {
-                a1.append("1");
-            } else {
-                a1.append("0");
+        if(a!=0) {
+            StringBuilder a1 = new StringBuilder();
+            score = Math.abs(a);
+            while (score > 0) {
+                if (score % 2 == 1) {
+                    a1.append("1");
+                } else {
+                    a1.append("0");
+                }
+                score >>= 1;
             }
-            score >>= 1;
-        }
-        a1.reverse();
-        exp = a1.length()-1 + 127;
-        a1.deleteCharAt(0);
-        for (byte i = 7; i >= 0; i--) {
-            if ((int) (Math.pow(2, i)) <= exp) {
-                exp1.append("1");
-                exp = exp - (int)Math.pow(2, i);
-            } else {
-                exp1.append("0");
+            a1.reverse();
+            exp = a1.length() - 1 + 127;
+            a1.deleteCharAt(0);
+            for (byte i = 7; i >= 0; i--) {
+                if ((int) (Math.pow(2, i)) <= exp) {
+                    exp1.append("1");
+                    exp = exp - (int) Math.pow(2, i);
+                } else {
+                    exp1.append("0");
+                }
             }
-        }
-        score1 = b;
-        while(score1 > 0 & a1.length() + b1.length()<23) {
-            score1 *= 2;
-            if ((long)score1 == 1) {
-                b1.append("1");
-                score1 -= (long)score1;
-            } else {
-                b1.append("0");
+            score1 = Math.abs(b);
+            while(score1 > 0 & a1.length() + b1.length()<23) {
+                score1 *= 2;
+                if ((long)score1 == 1) {
+                    b1.append("1");
+                    score1 -= (long)score1;
+                } else {
+                    b1.append("0");
+                }
             }
+            out = a1.append(b1);
         }
-        out = a1.append(b1);
+        else {
+            score1 = Math.abs(b);
+            while (score1 > 0 & b1.length() < 23) {
+                score1 *= 2;
+                if ((long) score1 == 1) {
+                    b1.append("1");
+                    score1 -= (long) score1;
+                } else {
+                    b1.append("0");
+                }
+            }
+            exp = 127 - b1.length();
+            for (byte i = 7; i >= 0; i--) {
+                if ((int) (Math.pow(2, i)) <= exp) {
+                    exp1.append("1");
+                    exp = exp - (int) Math.pow(2, i);
+                } else {
+                    exp1.append("0");
+                }
+            }
+            out.append(b1);
+        }
         while(out.length()<23){
             out.append("0");
         }
-        if (a>=0) {
-            System.out.println("float:  0 " + exp1 + " " + out);
+        if (a > 0 | b > 0) {
+            System.out.println("double: 0 " + exp1 + " " + out);
         }
-        if (a<0) {
-            System.out.println("float:  1 " + exp1 + " " + out);
+        if (a < 0 | b < 0) {
+            System.out.println("double: 1 " + exp1 + " " + out);
         }
     }
 
@@ -279,6 +327,7 @@ public class Main {
     public static void main(String[] args) {
         double frac = 0;
         long input;
+        byte flag = 0;
         String input1;
         String[] parts;
         Scanner sc = new Scanner(System.in);
@@ -290,6 +339,9 @@ public class Main {
             frac = Double.parseDouble(parts[1]);
             String frac1 = String.valueOf(frac);
             frac/=(Math.pow(10, frac1.length()-2));
+            if(input==0 & input1.contains("-")){
+                frac*=-1;
+            }
             System.out.println("\""+input1+"\" ->\n");
         } else if(input1.contains(",")){
             parts = input1.split(",");
@@ -297,6 +349,9 @@ public class Main {
             frac = Double.parseDouble(parts[1]);
             String frac1 = String.valueOf(frac);
             frac/=(Math.pow(10, frac1.length()-2));
+            if(input==0 & input1.contains("-")){
+                frac*=-1;
+            }
             System.out.println("\""+input1+"\" ->\n");
         } else{
             input = Long.parseLong(input1);
